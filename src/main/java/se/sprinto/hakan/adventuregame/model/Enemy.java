@@ -8,6 +8,7 @@ public class Enemy extends AbstractCharacter {
 
     @Override
     public void attack(AbstractCharacter target) {
+
         target.setHealth(target.getHealth() - this.getStrength());
     }
 }

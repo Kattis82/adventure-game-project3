@@ -1,0 +1,2 @@
+app.author=Kattis Calmvik
+app.version=1.1

@@ -28,7 +28,7 @@ public class StartRoom implements Room {
                     } else {
                         System.out.println("Du har redan hittat och öppnat kistan");
                     }
-                    break;
+                    break;  // spelet avslutas inte här --> fixa
                 case "q":
                     exit = true;
                     break;
