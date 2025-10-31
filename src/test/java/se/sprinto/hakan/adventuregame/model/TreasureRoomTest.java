@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class TreasureRoomTest {
 
     @Test
-    @DisplayName("Kontrollerar att kistan bara går att öppna om man har nyckel")
+    @DisplayName("Kontroll - kistan går bara att öppna om man har nyckel")
     void testKeyCanOpenChest() {
 
         // arrange
@@ -29,18 +29,17 @@ class TreasureRoomTest {
         player.setFoundKey(true);
         fakeUI.setInput("ja");
 
-        // act
-
+        // act - kör metoden enterRoom
         treasureRoom.enterRoom(player,fakeUI);
 
-        // assert
+        // assert - kollar att kistan är öppnad
         Assertions.assertTrue(player.hasOpenedChest());
     }
 
 
     @Test
-    @DisplayName("Kontrollerar att kistan inte går att öppna utan nyckel")
-    void testNoKeyNotOpenChest() {
+    @DisplayName("Kontroll -kistan går inte att öppna utan nyckel")
+    void testNotOpenChestWithoutKey() {
 
         // arrange
         TreasureRoom treasureRoom = new TreasureRoom();
@@ -58,11 +57,10 @@ class TreasureRoomTest {
         // nyckel saknas här
         fakeUI.setInput("ja");
 
-        // act
-
+        // act - kör metoden enterRoom
         treasureRoom.enterRoom(player,fakeUI);
 
-        // assert
+        // assert - kollar att det inte går att öppna kistan
         Assertions.assertFalse(player.hasOpenedChest());
     }
 

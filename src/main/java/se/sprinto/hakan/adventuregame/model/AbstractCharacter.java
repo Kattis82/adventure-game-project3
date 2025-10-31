@@ -31,12 +31,30 @@ public abstract class AbstractCharacter {
         }
     }
 
+    public void addHealth(int power) {
+        this.health += power;
+    }
+
     public int getScore() {
         return score;
     }
 
     public void addScore(int amount) {
+
         this.score += amount;
+    }
+
+    // lägger till metod som drar av poäng
+    public void removeScore(int amount) {
+        this.score -= amount;
+    }
+
+    public void removeStrength(int power) {
+        this.strength -= power;
+    }
+
+    public void addStrength(int power) {
+        this.strength += power;
     }
 
     public int getStrength() {
@@ -50,5 +68,7 @@ public abstract class AbstractCharacter {
     public boolean isAlive() {
         return health > 0;
     }
+
+
 }
 

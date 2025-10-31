@@ -15,29 +15,37 @@ import static org.junit.jupiter.api.Assertions.*;
 class StatisticsServiceTest {
 
     @Test
-    @DisplayName("Kontrollerar att listan sorteras")
+    @DisplayName("Kontroll - lista ska sorteras")
     void testGetSortedStatistics() {
 
-        // arrange - typ är StatisticsDao,men objektet är ett fake-objekt
-        // för att kunna komma åt att läsa listan med hårdkodade värden
+        // arrange - typ är en datakälla, men objektet är ett fejk-objekt (databasfil)
+        // som används för att kunna komma åt att läsa listan med hårdkodade värden
 
         StatisticsDao fakeDao = new FakeFileStatisticsDao();
+
+
+        // objektet hämtar spelresultat (Statistics - kommer via fakeDao)
+        // mha DI: fake-datakällan hämtar statistiken som är hårdkodad lista
+
         StatisticsService service = new StatisticsService(fakeDao);
 
-        // act - kör metoden
+
+        // act - kör metoden som sparar ner en lista med spelresultat
 
         List<Statistics> result = service.getSortedStatistics();
 
-        // assert
-        // kolla att listan har rätt antal element, färväntar mig 3 st
+
+        // assert - kolla att listan har rätt antal element, förväntar mig 3 st
 
         assertEquals(3,result.size());
 
-        // kontrollera ordningen, Oscar (220) borde ligga först, sen Kattis (90)
-        // och sen Soya (70)
+
+        // kontrollera ordningen, Oscar borde ligga först (index 0), poängen 220
+        // borde ligga först (index 0)
 
         assertEquals("Oscar",result.get(0).getPlayerName());
         assertEquals(220, result.get(0).getScore());
+
 
         // kontrollera att ordningen stämmer enligt väntat resultat
         // först jämförs om högst upp (index 0) har högre score än den som ligger

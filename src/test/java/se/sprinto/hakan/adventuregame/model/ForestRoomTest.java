@@ -24,14 +24,13 @@ public class ForestRoomTest {
 
         FakeUI fakeUI = new FakeUI();
 
-        // Vill du undersöka glittret?
+        // Vill undersöka glittret
         fakeUI.setInput("ja");
 
-        // act
-
+        // act - kör metoden
         forestRoom.enterRoom(player,fakeUI);
 
-        // assert - testa om användaren hittade nyckeln
+        // assert - kollar att användaren hittade nyckeln
         Assertions.assertTrue(player.hasFoundKey());
 
     }

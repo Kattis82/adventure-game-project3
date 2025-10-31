@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlayerTest {
 
     @Test
-    @DisplayName("Kontrollera att fiendens hälsa minskar med spelarens styrka")
+    @DisplayName("Kontroll - fiendens hälsa minskar med spelarens styrka")
     void testEnemyHealthAfterAttack() {
 
         // arrange
@@ -23,16 +23,16 @@ class PlayerTest {
 
         Enemy enemy = new Enemy("Ork",30,0,5);
 
-        // act
-
+        // sparar fiendens hälsa före attack
         int healthBefore = enemy.getHealth();
+
+        // act - kör metoden
         player.attack(enemy);
 
-        // fiendens hälsa innan attacken minus hälsan efter attacken
+        // förändring av fiendens hälsa
         int result = healthBefore - enemy.getHealth();
 
-        // assert - fiendens hälsa innan attack (30) - hälsan efter attack  = 10
-
+        // assert - hälsa innan attack (30) - hälsan efter attack (20)  = 10
         Assertions.assertEquals(10,result);
 
 

@@ -5,6 +5,9 @@ public class Player extends AbstractCharacter {
     private boolean foundKey;
     private boolean defeatedEnemy;
     private boolean openedChest;
+    private boolean deceivedTroll;
+    private boolean foundPassword;
+
 
 
     private Player(Builder builder) {
@@ -78,6 +81,24 @@ public class Player extends AbstractCharacter {
         return foundKey && defeatedEnemy && openedChest;
     }
 
+    public boolean hasDeceivedTroll() {
+        return deceivedTroll;
+    }
+
+    public void setDeceivedTroll(boolean deceivedTroll) {
+        this.deceivedTroll = deceivedTroll;
+
+    }
+
+    public boolean hasFoundPassword() {
+        return foundPassword;
+    }
+
+    public void setFoundPassword(boolean foundPassword) {
+        this.foundPassword = foundPassword;
+    }
+
+
     @Override
     public void attack(AbstractCharacter target) {
         target.setHealth(target.getHealth() - this.getStrength());
@@ -85,5 +106,7 @@ public class Player extends AbstractCharacter {
         if (!target.isAlive()) {
             addScore(50);
         }
+
+
     }
 }

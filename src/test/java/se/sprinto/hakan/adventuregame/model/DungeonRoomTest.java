@@ -8,7 +8,7 @@ import se.sprinto.hakan.adventuregame.view.FakeUI;
 public class DungeonRoomTest {
 
     @Test
-    @DisplayName("Kontrollerar att spelaren besegras fienden genom att välja a")
+    @DisplayName("Kontrollerar att spelaren besegrar fienden genom att välja a")
     public void testAttackDefeatsEnemy() {
 
         // arrange
@@ -22,17 +22,16 @@ public class DungeonRoomTest {
                 .build();
 
         FakeUI fakeUI = new FakeUI();
+        // attackerar
         fakeUI.setInput("a");
 
-        // act
-
+        // act - kör metoden
         dungeonRoom.enterRoom(player,fakeUI);
 
-        // välj (a)för att attackera
+        // attackerar
         fakeUI.setInput("a");
 
-        // assert
-
+        // assert - kollar att spelaren har besegrat fienden
         Assertions.assertTrue(player.hasDefeatedEnemy());
     }
 }

@@ -4,7 +4,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+
+
 public class AppFileHandler {
+
+    // metod som först kontrollerar om filen configuration.txt finns,
+    // annars skapas den. Sedan läggs standard inställningar in (namn och version)
 
     public static void createConfigFile() {
 
