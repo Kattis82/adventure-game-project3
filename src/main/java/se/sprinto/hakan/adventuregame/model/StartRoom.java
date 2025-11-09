@@ -31,9 +31,16 @@ public class StartRoom implements Room {
                     }
                     break;
                 case "4":
-                    new CaveRoom().enterRoom(player, ui);
+                    if(!player.hasFoundPassword()) {
+                        new CaveRoom().enterRoom(player, ui);
+                    } else {
+                        ui.showMessage("Du har redan besegrat trollet och funnit lösenordet");
+                    }
                     break;
                 case "5":
+                    if(!player.hasFoundPassword()){
+                        ui.showMessage("Välkommen in! Med ett lösenord finns här stora möjligheter ");
+                    }
                     new ResurrectionRoom().enterRoom(player, ui);
                     break;
                 case "6":

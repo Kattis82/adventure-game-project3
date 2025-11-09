@@ -21,6 +21,7 @@ public class FakeFileStatisticsDao implements StatisticsDao {
         // returnera hårdkodade Statistics-objekt i en lista
         // listan består av spelresultat - namn och poäng (Statistics)
 
+
         List<Statistics> stats = new ArrayList<>();
                 stats.add(new Statistics("Soya",70));
                 stats.add(new Statistics("Oscar",220));

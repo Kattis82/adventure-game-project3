@@ -1,8 +1,3 @@
- Kattis;220
-Kattis;0
-Kattis;320
- ClulessKat;30
- The cat;170
-Kattis;220
-Kattis;220
-Kattis;380
+HH;400
+Oscar;350
+Kattis;500

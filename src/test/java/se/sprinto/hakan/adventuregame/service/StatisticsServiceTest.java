@@ -24,13 +24,15 @@ class StatisticsServiceTest {
         StatisticsDao fakeDao = new FakeFileStatisticsDao();
 
 
-        // objektet hämtar spelresultat (Statistics - kommer via fakeDao)
+        // objektet service hämtar spelresultat (Statistics - kommer via fakeDao)
+        // dao kommer in via konstruktorn
         // mha DI: fake-datakällan hämtar statistiken som är hårdkodad lista
 
         StatisticsService service = new StatisticsService(fakeDao);
 
 
-        // act - kör metoden som sparar ner en lista med spelresultat
+        // act - kör metoden som sparar ner resultatet i en lista med spelresultat
+        // i getSortedStatistics används dao för att anropa loadAll()
 
         List<Statistics> result = service.getSortedStatistics();
 

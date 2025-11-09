@@ -16,8 +16,8 @@ public class MagicRoom implements Room {
 
         if(choice.equalsIgnoreCase("nej")) {
             trollkarl.attack(player);
-            ui.showMessage("Trollkarlen blir arg och attackerar dig! Han tar styrka, "+
-                    "nu har du " + player.getStrength() + " i styrka." +
+            ui.showMessage("Trollkarlen blir arg, attackerar och tar styrka från dig! "+
+                    "Nu har du " + player.getStrength() + " kvar i styrka." +
                     " Du känner att din kraft minskar, men försvarar dig. ");
             player.attack(trollkarl);
             ui.showMessage("Trollkarlen har mycket HP kvar (" + trollkarl.getHealth() + "), så du flyr från tornet. ");
