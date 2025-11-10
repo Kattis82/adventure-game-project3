@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(MockitoExtension.class)
 public class MockStatisticsServiceTest {
 
-    // mocka klassen: blir alltså en låtsas-version av en databasfil nu
+    // mocka klassen: blir en låtsas-version av en databasfil nu
     @Mock
     private FileStatisticsDao dao;
 
@@ -42,13 +42,14 @@ public class MockStatisticsServiceTest {
         stats.add(new Statistics("Kattis",90));
 
 
-        // when: mock-objektet (dao) och metoden (loadAll()) som ska simuleras specificeras
-        // thenReturn: listan (stats) ska returneras efter att metoden har anropats
+        // when säger att metoden loadAll() inte ska köras, istället för att köra
+        // den riktiga metoden ska du (thenReturn) returnera listan stats
         Mockito.when(dao.loadAll()).thenReturn(stats);
 
 
-        // act - kör metoden getSortedStatistics (returnerar lista) som ligger i
-        // StatisticsService och sparar resultatet i en lista
+        // act - kör metoden getSortedStatistics (returnerar lista), dao.loadAll()
+        // ligger inuti metoden och den hårdkodade listan stats returneras
+        // service får listan stats och sorterar den, sparar resultatet i en lista
         List<Statistics> result = service.getSortedStatistics();
 
 
@@ -58,7 +59,7 @@ public class MockStatisticsServiceTest {
         assertEquals("Soya",result.get(2).getPlayerName());
 
 
-        // verifiera att loadAll() har anropats 1 gång
+        // verifiera att loadAll() har anropats 1 gång - kontrollera beteendet
         Mockito.verify(dao, Mockito.times(1)).loadAll();
 
     }
@@ -77,9 +78,8 @@ public class MockStatisticsServiceTest {
         stats.add(new Statistics("Oscar",220));
         stats.add(new Statistics("Kattis",90));
 
-
-        // simulering av mock (låtsas-datakällan) och metod som
-        // talar om att loadAll() ska returnera listan
+        // when säger att metoden loadAll() inte ska köras, istället för att köra
+        // den riktiga metoden ska du (thenReturn) returnera listan stats
         Mockito.when(mockDao.loadAll()).thenReturn(stats);
 
         // skapar service-objektet med mockad (låtsas) datakälla

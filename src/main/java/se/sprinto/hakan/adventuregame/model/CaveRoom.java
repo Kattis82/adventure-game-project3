@@ -13,7 +13,7 @@ public class CaveRoom implements Room {
             String choice = ui.getInput("Vill du (g)å vidare in i grottan eller (f)ly?");
             if(choice.equalsIgnoreCase("g")) {
                 troll.attack(player);
-                ui.showMessage("Ett troll hoppar på dig och attackerar! Ditt HP: " + player.getHealth());
+                ui.showMessage("Trollet hoppar på dig och attackerar! Ditt HP: " + player.getHealth());
                 if(player.isAlive()) {
                   player.attack(troll);
                   ui.showMessage("Du försvarar dig och attackerar trollet. Trollets HP: " + troll.getHealth());
@@ -33,7 +33,6 @@ public class CaveRoom implements Room {
             ui.showMessage("Trollet är besegrat! Du hittar ett lösenord " +
                     "på trollets döda kropp och går ut ur grottan.");
             player.setFoundPassword(true);
-            player.addScore(50);
         }
 
         if (!player.isAlive()) {

@@ -17,6 +17,7 @@ public class FakeFileStatisticsDao implements StatisticsDao {
         // denna kan vara tom, ska inte spara något i testet
     }
 
+
     public List<Statistics> loadAll() {
         // returnera hårdkodade Statistics-objekt i en lista
         // listan består av spelresultat - namn och poäng (Statistics)

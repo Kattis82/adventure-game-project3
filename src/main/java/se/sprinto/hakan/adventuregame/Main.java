@@ -19,7 +19,7 @@ public class Main {
         // hämta den enda instansen (singleton)
         AppInfo appInfo = AppInfo.getInstance();
 
-        // hämta författare och version
+        // hämta värden för författare och version (via givna nycklar)
         String author = appInfo.getProperty("app.author");
         String version = appInfo.getProperty("app.version");
         ui.showMessage("Version " + version + " av " + author);
